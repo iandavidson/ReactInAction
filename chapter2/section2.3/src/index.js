@@ -1,12 +1,20 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+import React from "react";
+import { render } from "react-dom";
+const root = document.getElementById("root");
+const virtualRoot = React.createElement(
+  "div",
+  {},
+  React.createElement(
+    "h1",
+    {},
+    "Hello, world!",
+    React.createElement(
+      "a",
+      { href: "mailto:mark@ifelse.io" },
+      React.createElement("h1", {}, "React In Action"),
+      React.createElement("em", {}, "...wow italics")
+    )
+  )
+);
 
-ReactDOM.render(<App />, document.getElementById('root'));
-
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: http://bit.ly/CRA-PWA
-serviceWorker.unregister();
+render(virtualRoot, root);
